@@ -1,16 +1,20 @@
 MoreMigrationPaths
 ==================
 
-This Plugin adds the possibility to add more migration paths to rails. This is helpful if you want to split your migrations in multiple directories.
+This plugin adds the possibility to add more migration paths to rails. This is helpful if you want to split your migrations in multiple directories. You could have migrations in plugins or gems for example.
 
-Example
-=======
+Usage
+=====
 
-Just add something like this to an initializer:
+Install with:
 
-ActiveRecord::Migrator.add_migration_path(File.join(RAILS_ENV, 'lib', 'extra_migrations'))
+script/plugin install git://github.com/helle/more_migration_paths.git
 
+After that just add something like this to an initializer:
 
+ActiveRecord::Migrator.add_migration_path(File.join(RAILS_ROOT, 'lib', 'extra_migrations'))
+
+The next time you do a db:migrate, your migrations in RAILS_ROOT/lib/extra_migrations will automatically be found and migrated.
 
 
 Copyright (c) 2009 Andreas Gerauer @ Kupferwerk, released under the MIT license
